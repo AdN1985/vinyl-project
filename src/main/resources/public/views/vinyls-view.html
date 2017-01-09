@@ -1,0 +1,60 @@
+<div class="container pad-top">
+  <table class="table vinyltable" style="height:100%">
+  	    <tr>
+          <td><h3>Details for {{vinyl.title}}</h3></td>
+	    </tr>
+	    <tr>	    
+	       <td>
+	    	<table style="width:100%">	    
+		  		  <tr> 
+		  			<td>
+			  			<table style="width:100%;font-size: medium;">					     
+						      <tr>
+						          <td width="50%"><span style="font-weight: bold;">Title</span></td>
+						          <td align="right">{{vinyl.title}}</td>
+						      </tr>
+						      <tr>
+						          <td width="50%"><span style="font-weight: bold;">Artist</span></td>
+						          <td align="right">{{vinyl.artist}}</td>
+						      </tr>
+						      <tr>
+						          <td width="50%"><span style="font-weight: bold;">Edited</span></td>
+						          <td align="right">{{vinyl.edited}}</td>
+						      </tr>
+						      <tr>
+						          <td width="50%"><span style="font-weight: bold;">Genres</span></td>
+						          <td align="right"><span ng-show="vinyl.genre1.name" class="button button--inline-block button--medium">{{vinyl.genre1.name}}</span>&nbsp;<span ng-show="vinyl.genre2.name" class="button button--inline-block button--medium">{{vinyl.genre2.name}}</span></td>
+						      </tr>
+						</table>
+					</td>
+				  </tr>						    
+	 		</table>
+	  	  </td>
+	  	</tr>
+	  <tr>	
+	  	<td>
+		  	<table style="width:100%;height:100%;font-size: medium;">
+		  		<tr>
+		  			<td valign="top"><span style="font-weight: bold;">Image</span></td>	
+		  		</tr>
+		  		<br><br>	  		
+		  		<tr>
+	  				<td>
+				  		<table style="width:100%;height:100%;">
+				  			<br><br><br><br>
+				  			<tr align="center">
+						  		<td width="50%"><img ng-src="{{vinyl.imageSrcFront}}" class="thumbnail zoom" height="250" width="250"/></td>		      						      					    
+								<td width="50%"><img ng-src="{{vinyl.imageSrcBack}}" class="thumbnail zoom" height="250" width="250"/></td>
+				  			</tr>
+				  		</table>
+	  				</td>
+	  			</tr>		  
+		  	</table>
+		</td>
+	  </tr>	  
+  </table>
+  <br><br>
+  <div align="right">
+      <a ui-sref="editVinyl({id:vinyl.id})"><img src="/images/edit.png" width="55" height="55" title="Edit Vinyl"/></a>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<!-- TITLE FIELD -->
+<div class="form-group">
+    <label for="title" class="col-sm-2 control-label">Title</label>
+    <div class="col-sm-10">
+        <input type="text" ng-model="vinyl.title" class="form-control" id="title"/>
+    </div>
+</div>
+<!-- ARTIST FIELD -->
+<div class="form-group">
+    <label for="artist" class="col-sm-2 control-label">Artist</label>
+    <div class="col-sm-10">
+        <input type="text" ng-model="vinyl.artist" class="form-control" id="artist"/>
+    </div>
+</div>
+<!-- EDITED FIELD -->
+<div class="form-group">
+    <label for="edited" class="col-sm-2 control-label">Edited</label>
+    <div class="col-sm-10">
+        <input type="text" ng-model="vinyl.edited" class="form-control" id="edited" placeholder="yyyy" maxlength="4"/>
+    </div>
+</div> 
+<!-- GENRES FIELD -->
+<div class="form-group">
+    <label for="edited" class="col-sm-2 control-label">Genres</label>
+    <div class="col-sm-10">
+			<div style="float: left; width: 90%;" id="divGenres"> 
+					<span ng-show="vinyl.genre1.name" class="button button--inline-block button--medium" id="spanGenre1">{{vinyl.genre1.name}}</span>
+					<span>&nbsp;</span>
+					<span ng-show="vinyl.genre2.name" class="button button--inline-block button--medium" id="spanGenre2">{{vinyl.genre2.name}}</span>
+			</div>
+
+			<div style="float: right;">
+					<img src="/images/add.png" width="25" height="25" ng-click='toggleModal()' title="Select Genre"/>&nbsp;&nbsp;&nbsp;
+					<img src="/images/remove.png" width="25" height="25" ng-click='removeGenre()' title="Remove Genres"/>
+			</div>
+    </div>
+</div>
+<!-- IMAGE FIELD --> 
+<div class="form-group">
+    <label for="imgFiles" class="col-sm-2 control-label">Image</label>
+    <div class="col-sm-10">      
+    	<input id="imgFiles" type="file" file-read="imgFiles" accept="image/jpeg,image/png"/>
+    </div>
+</div>
+<div class="form-group" align="center">
+ 	<table style="width:100%" id="tableThumbnails">
+ 		<br><br>
+ 		<tr height="50" align = "center"><td><label class="control-label">Front</label></td><td><label class="control-label">Back</label></td></tr>	 		
+ 		<tr align = "center">
+ 			<td><img id="thumbFront" ng-src="{{vinyl.imageSrcFront}}" src="/images/img_not_available.png" ng-model="vinyl.imageSrcFront" class="thumbnail zoom" height="200" width="200"/></td>
+ 			<td><img id="thumbBack"  ng-src="{{vinyl.imageSrcBack}}" src="/images/img_not_available.png" ng-model="vinyl.imageSrcBack" class="thumbnail zoom" height="200" width="200"/></td>
+ 		</tr>
+ 		<tr height="50" align = "center">
+ 			<td>
+ 				<img src="/images/remove.png" width="35" height="35" onclick="javascript:document.getElementById('thumbFront').src='/images/img_not_available.png'; document.getElementById('imgFiles').value='';" title="Remove front image"/>	 				
+ 			</td>
+ 			<td>
+ 				<img src="/images/remove.png" width="35" height="35" onclick="javascript:document.getElementById('thumbBack').src='/images/img_not_available.png'; document.getElementById('imgFiles').value='';" title="Remove back image"/>
+ 			</td>
+ 		</tr>	 		
+ 	</table> 		
+</div>
+<div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10" align="right">
+    	<input type="image" src="/images/save.png" width="75" height="75" alt="Save Vinyl"/>
+    </div>
+</div>
+<div class="container pad-top">
+      <div ng-include="'views/_genres-modal.html'"></div>
+</div>
+
+	

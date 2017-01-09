@@ -1,0 +1,88 @@
+<div class="container pad-top">
+  <table class="table vinyltable">
+      <tr>
+          <td><h3>{{vinyls.length}} Vinyls</h3></td>       
+      </tr>
+      <!-- SEARCH -->      
+	  <tr>
+		<td>
+			<table style="width: 100%">
+			    <tr>
+				  <td align="left" width="47%">
+	 				  	<label for="searchVinyl">Search:&nbsp;</label>
+						<input size="50" type="text" id="searchVinyl" ng-model="queryBy">
+				  </td>
+				  <td>
+					  <div ng-controller="VinylUploadController">
+					  	<table style="width: 100%">
+					  		<tr>
+						  		<td width="40%">	
+								  	<input type="file" file-model="myFile"/>
+							  	</td>
+							  	<td align="center">							  							  	   
+								    <a ng-click="uploadVinyls()"><img src="/images/upload.png" width="55" height="55" title="Upload data" style="cursor: pointer;"/></a>					
+						      	</td> 
+					      	</tr>				  	
+					  	</table>
+					 </div>
+				 </td>
+			   	</tr>       
+			</table>
+	 	 </td>
+      </tr>     
+     	<!--  LIST VINYLS -->  
+  		<tr ng-repeat="vinyl in filteredVinyls = vinyls | filter:queryBy | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+      	<td valign="middle">
+      		<table class="export-table">
+      			<tr>
+      			 <td width="25%" class="txtFieldVinyl" title="{{vinyl.title}}">{{vinyl.title}}</td>
+		         <td width="25%" class="txtFieldVinyl" title="{{vinyl.artist}}">{{vinyl.artist}}</td>
+		         <td width="25%" align="center">{{vinyl.edited}}</td>
+		         <td width="25%" align="left">
+		         	<span ng-show="vinyl.genre1.name" class="buttonSmall buttonSmall--inline-block">{{vinyl.genre1.name}}</span>
+		         	<span ng-show="vinyl.genre2.name" class="buttonSmall buttonSmall--inline-block">{{vinyl.genre2.name}}</span>
+		         </td>		         
+		         <td width="15%">
+   					<table>
+   						<tr>
+   							<td align="right">
+   								<a ui-sref="viewVinyl({id:vinyl.id})" style="cursor: default;text-decoration: none;">
+   									<img src="/images/view.png" width="28" height="28" title="View Vinyl"/>
+   								</a> &nbsp;
+   								<a ng-click="deleteVinyl(vinyl)" >
+   									<img src="/images/remove.png" width="27" height="27" title="Remove Vinyl"/>
+   								</a>
+   							</td>   						
+   						</tr>
+   					</table>              
+       			 </td>		         	
+		        </tr>      	
+      		</table>
+      	</td>
+   	  </tr>
+   	  <!--  PAGINATIION -->
+   	  <tr>
+   	  	<td>
+	   	  	<table style="width: 100%">
+	   	  		<tr>
+		   	  		 <td width="80%">   	     	     	
+						<pagination page="currentPage" total-items="totalItems" max-size="noOfPages" items-per-page="entryLimit"></pagination>
+				 	 </td>
+				 	 <td>
+				 	 	<table>
+				 	 		<tr>
+					 	 		<td width="35%" align="center">		
+							  	  	<a ui-sref="newVinyl"><img src="/images/add-vinyl.png" width="55" height="55" title="Add Vinyl"/></a>
+							  	</td> 							  	
+							  	<td align="center">		
+							  	  	<a ng-click="exportVinyls({ filename: 'vinyls.csv' });"><img src="/images/export.png" width="55" height="55" title="Export data" style="cursor: pointer;"/></a>
+							  	</td> 							  								  					 	 	
+				 	 		</tr>				 	 		
+				 	 	</table>
+				 	 </td>				  	  	  		
+	   	  		</tr>
+	   	  	</table>
+   	  	</td>
+	  </tr>
+  </table>
+</div>

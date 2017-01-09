@@ -1,0 +1,12 @@
+<!--  MODAL GENRES -->
+<modal-dialog show='modalShown' width='10%' height='530%'>
+		<div class="ng-modal-close" ng-click="toggleModal()">X</div>
+		<br>
+		<div align="center"><span style="font-weight: bold;">2 genres max.</span></div>
+		<br>
+		<ul ng-repeat="genre in genres" style="margin-left:auto">
+		  <li ng-click="addGenre({genre: genre})" class="button button--inline-block button--medium" style="cursor: default;">{{genre.name}}</li>
+		</ul>
+</modal-dialog>
+
+
