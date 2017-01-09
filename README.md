@@ -2,7 +2,7 @@
 MOTIVATION
 ----------
 
-This is a personal project to improve knowledges and put in practices Spring Boot and Angular. In background, I have enough vinyls on my home and I would like to have all of them registered in a BBDD.
+This is a personal project to improve knowledges and put in practice Spring Boot and Angular. In background, I have enough vinyls on my home and I would like to have all of them registered in a database.
 
 
 WHAT IT DOES?
